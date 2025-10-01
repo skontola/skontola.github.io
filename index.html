@@ -7,25 +7,60 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
+            font-size: 1rem;
             margin: 2rem;
-            background: #fffdd0;
-            color: #333;
+            line-height: 1.5;
+            background: #F8E9E9;
+            color: #3b2f2f;
         }
         h1 {
-            color: #007acc;
+            font-size: 2.5rem;
+            color: #3b2f2f;
         }
         .card {
-            background: white;
+            background: #EDB6A3;
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            color: inherit;
+        }
+        .card h1 {
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            margin-bottom: 0.5rem;
+        }
+        .melon {
+            border-left: 6px solid #EDB6A3;
+            color: #3b2f2f;
+        }
+        .green {
+            border-left: 6px solid #204635;
+            color: #F8E9E9;
+        }
+        .purple {
+            border-left: 6px solid #211E34;
+            color: #F8E9E9;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <div class="card">
+    <div class="card green">
         <h1>Hello World 👋</h1>
-        <p><strong>Big</strong> things are coming.</p>
+    </div>
+    <div class="card purple">
+        <p>Big things are coming.</p>
+    </div>
+    <div class="card melon">
+        <p>✨ <em>web dev is my passion</em> ✨</p>
     </div>
 </body>
 </html>
