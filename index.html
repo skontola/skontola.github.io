@@ -47,8 +47,8 @@
             color: #F8E9E9;
         }
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transform: translateX(3px);
+            box-shadow: -4px 0 10px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
         }
         button {
@@ -62,8 +62,6 @@
             cursor: pointer;
             overflow: hidden;
         }
-
-        /* the "groove pill" */
         button::before {
             content: "";
             position: absolute;
@@ -74,14 +72,17 @@
             border-radius: 999px;
             background: linear-gradient(
                 to bottom,
-                rgba(0,0,0,0.20),       /* shadow at top */
+                rgba(0,0,0,0.22),       /* shadow at top */
                 rgba(255,255,255,0.20)  /* highlight at bottom */
             );
             pointer-events: none;
         }
+        button:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+            background: #2a5745;  /* slightly lighter shade for hover */
         }
     </style>
 </head>
@@ -94,6 +95,10 @@
     </div>
     <div class="card melon">
         <p>✨ <em>web dev is my passion</em> ✨</p>
+    </div>
+    <div class="card">
+        <p>Spice it up!</p>
+        <button onclick="randomizeColors()">randomize colors</button>
     </div>
     <div class="card">
         <h1 id="message">apa</h1>
@@ -133,11 +138,21 @@
         "öpa"
     ];
     let index = 0;
-
     function toggleText() {
         const msg = document.getElementById('message');
         index = (index + 1) % phrases.length; // go to next, wrap around
         msg.textContent = phrases[index];
+    }
+
+    const colors = ['#EDB6A3', '#E5967E', '#204635', '#211E34'];
+    function randomizeColors() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            card.style.background = randomColor;
+            card.style.color = randomColor === '#204635' || randomColor === '#211E34' 
+                ? '#F8E9E9' : '#3b2f2f';
+        });
     }
 </script>
 
